@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TransJogja ERP</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head><body>
+<div id="lg"><div class="lgl"><svg viewBox="0 0 44 30"><path d="M12 2h30l-7 9H5z" fill="#b08d57"/><path d="M6 16h30l-7 9H-1z" fill="#b08d57"/></svg><h2>TransJogja<br>ERP</h2><p class="tag">Subsidi Angkutan Perkotaan</p><div class="rule"></div><p class="d">RKA, pengajuan, dan verifikasi subsidi PT AMI dan PT JTT dalam satu sistem.</p></div>
+<div class="lgr"><div class="lgb"><h3>Masuk ke Sistem</h3><p class="sub">Silakan login untuk melanjutkan</p>
+<input id="lu" type="text" placeholder="Username" autocomplete="username"><input id="lp" type="password" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
+<button class="p" onclick="login()">Masuk</button><button class="gbtn" onclick="login('guest')">Masuk sebagai Tamu</button><p class="sub" style="margin-top:14px">Mode demo: belum ada autentikasi, nama yang Anda isi hanya ditampilkan di pojok kanan atas.</p><p class="sub">TransJogja ERP v1.0.0</p></div></div></div>
+<div id="app" hidden><aside><div class="logo"><svg viewBox="0 0 44 30"><path d="M12 2h30l-7 9H5z" fill="#b08d57"/><path d="M6 16h30l-7 9H-1z" fill="#b08d57"/></svg><span>TransJogja</span></div><nav id="nav"></nav><button class="out" onclick="logout()">Keluar</button></aside>
+<section class="mn"><header class="tb"><input id="q" type="search" placeholder="Cari komponen, uraian, atau ID pengajuan…" oninput="srch(this.value)"><div class="us"><div class="av" id="av"></div><div><b id="un"></b><br><span class="sub" id="ro" style="margin:0">Administrator</span></div></div></header><div id="vw"></div></section></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="js/app.js"></script>
+</body></html>

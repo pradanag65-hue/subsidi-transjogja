@@ -1,0 +1,58 @@
+{
+ "brand": "TransJogja ERP",
+ "params": {
+  "g": 5,
+  "i": 3.5,
+  "b": 10,
+  "mg": 7,
+  "ev": false
+ },
+ "tabs": [
+  [
+   "dash",
+   "Dashboard",
+   "Ringkasan subsidi PT AMI dan PT JTT"
+  ],
+  [
+   "master",
+   "Master Data",
+   "Komponen biaya dan harga satuan"
+  ],
+  [
+   "rka",
+   "RKA 2027",
+   "Proyeksi anggaran tahun 2027"
+  ],
+  [
+   "ajuan",
+   "Pengajuan",
+   "Pengajuan biaya ke Dishub DIY"
+  ],
+  [
+   "verif",
+   "Verifikasi Dishub",
+   "Hasil verifikasi dan ACC Dishub"
+  ],
+  [
+   "akum",
+   "Akumulasi",
+   "Penangguhan dan nilai tidak cair yang terbawa"
+  ],
+  [
+   "lap",
+   "Laporan",
+   "Biaya pokok, pendukung, keuntungan, pendapatan: bulanan sampai tahunan"
+  ],
+  [
+   "ba",
+   "BA Verifikasi",
+   "Berita acara hasil verifikasi, siap cetak"
+  ],
+  [
+   "pgn",
+   "Pengaturan",
+   "Cadangan data dan reset"
+  ]
+ ],
+ "masterVersion": 2
+}

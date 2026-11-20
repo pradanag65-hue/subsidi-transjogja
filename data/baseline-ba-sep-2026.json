@@ -1,0 +1,492 @@
+{
+ "sumber": "Berita Acara Verifikasi Subsidi September 2026 (usulan)",
+ "catatan": "Nilai usulan per komponen. Bus Diesel: kolom PT AMI dan PT JTT. Bus Listrik: satu kolom tagihan (operator tidak disebut di BA).",
+ "data": {
+  "Bus Diesel": {
+   "1.1.1.1 Biaya Profisi": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.1.2 Asuransi Kendaraan": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.1.3 Asuransi Kredit": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.1.4 Biaya Keur": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.1.5 Biaya PKB (STNK)": {
+    "AMI": 0,
+    "JTT": 11403000
+   },
+   "1.1.1.6 Nilai Depresiasi Bus": {
+    "AMI": 0,
+    "JTT": 244939955
+   },
+   "1.1.1.7 Biaya Bunga Atas Modal": {
+    "AMI": 0,
+    "JTT": 60227138
+   },
+   "1.1.2.1 Biaya BBM": {
+    "AMI": 830802069,
+    "JTT": 768907928
+   },
+   "1.1.2.2 Biaya Ban": {
+    "AMI": 103750000,
+    "JTT": 78300000
+   },
+   "1.1.2.3 Service Kecil": {
+    "AMI": 5890000,
+    "JTT": 0
+   },
+   "1.1.2.4 Service Besar": {
+    "AMI": 0,
+    "JTT": 8420000
+   },
+   "1.1.2.5 Biaya Penambahan Oli Mesin": {
+    "AMI": 0,
+    "JTT": 45990000
+   },
+   "1.1.2.6 Biaya Perawatan dan Perbaikan AC": {
+    "AMI": 213696745,
+    "JTT": 121237500
+   },
+   "1.1.2.7 Biaya Overhoul Mesin": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.2.8 Biaya Overhoul Body": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.2.9 Biaya Penggantian Suku Cadang": {
+    "AMI": 589915421,
+    "JTT": 120731673
+   },
+   "1.1.2.10 Biaya Pemeliharaan Body": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.2.11 Biaya Cuci Bus": {
+    "AMI": 70680000,
+    "JTT": 61560000
+   },
+   "1.1.2.12 Biaya Retribusi Adisutjipto": {
+    "AMI": 20938000,
+    "JTT": 0
+   },
+   "1.1.2.12 Biaya Retribusi Jombor": {
+    "AMI": 14512000,
+    "JTT": 0
+   },
+   "1.1.2.12 Biaya Retribusi Condong Catur": {
+    "AMI": 9625000,
+    "JTT": 0
+   },
+   "1.1.2.12 Biaya Retribusi Prambanan": {
+    "AMI": 2179000,
+    "JTT": 0
+   },
+   "1.1.3.1 Alat Pengawasan": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.3.2 Biaya Layanan": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.4.1 Gaji Pramudi": {
+    "AMI": 821220692,
+    "JTT": 702735483
+   },
+   "1.1.5.1 Pneumatic Door": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.5.2 Rak Sepeda": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.5.3 Penetralisir ION dan Penyaring Udara": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.1.6.1 Biaya Asuransi Penumpang": {
+    "AMI": 3066800,
+    "JTT": 2706000
+   },
+   "1.2.1.1 Manajer": {
+    "AMI": 9987380,
+    "JTT": 9875296
+   },
+   "1.2.1.2 Kepala Bengkel dan Gudang": {
+    "AMI": 6281483,
+    "JTT": 6983171
+   },
+   "1.2.1.3 Kepala Bagian Operasi": {
+    "AMI": 5540107,
+    "JTT": 7083531
+   },
+   "1.2.1.4 Kepala Bagian Administrasi dan Keuangan": {
+    "AMI": 5446086,
+    "JTT": 7083531
+   },
+   "1.2.1.5 Staf Bengkel dan Gudang": {
+    "AMI": 33063684,
+    "JTT": 32613710
+   },
+   "1.2.1.6 Staf Bagian Operasi": {
+    "AMI": 45971330,
+    "JTT": 42817063
+   },
+   "1.2.1.7 Staf Bagian Administrasi dan Keuangan": {
+    "AMI": 40924947,
+    "JTT": 23312650
+   },
+   "1.2.1.8 Mekanik": {
+    "AMI": 33169995,
+    "JTT": 43237063
+   },
+   "1.2.1.9 Security": {
+    "AMI": 39385355,
+    "JTT": 39405889
+   },
+   "1.2.2.1 Biaya Sewa Kantor, Pool dan Bengkel": {
+    "AMI": 78797352,
+    "JTT": 0
+   },
+   "1.2.2.2 Penyusutan Peralatan Kantor": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.2.2.3 Penyusutan Peralatan Pool dan Bengkel": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.2.2.4 Pemeliharaan Kantor, Bengkel dan Peralatan": {
+    "AMI": 808000,
+    "JTT": 400000
+   },
+   "1.2.2.5 Biaya Administrasi Kantor": {
+    "AMI": 22985022,
+    "JTT": 12670577
+   },
+   "1.2.2.6 Biaya Listrik, Air dan Telepon": {
+    "AMI": 4520149,
+    "JTT": 4396934
+   },
+   "1.2.2.7 Biaya Perjalanan Dinas dan Rapat Evaluasi": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.2.2.8 Biaya Izin Usaha": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.2.2.9 Biaya Izin Trayek": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "1.2.2.10 Biaya Lain-Lain": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "2.1 Pengadaan dan atau Pemeliharaan Mesin Tiket": {
+    "AMI": 358220032,
+    "JTT": 0
+   },
+   "2.2 Pramugara/i": {
+    "AMI": 718013605,
+    "JTT": 602574140
+   },
+   "2.3 Biaya Petugas Halte": {
+    "AMI": 926979683,
+    "JTT": 0
+   },
+   "2.4 Biaya dalam hal Bencana": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "2.5 Biaya Hidangan Rapat Evaluasi dan Verifikasi": {
+    "AMI": 0,
+    "JTT": 0
+   },
+   "B.1.1 Pendapatan Tiket Tunai": {
+    "AMI": 542045000
+   },
+   "B.1.2 Astrapay": {
+    "AMI": 1069200
+   },
+   "B.1.3 Brizzi BRI": {
+    "AMI": 26937900
+   },
+   "B.1.4 E-money Mandiri": {
+    "AMI": 97105500
+   },
+   "B.1.5 Flazz BCA": {
+    "AMI": 31865400
+   },
+   "B.1.6 Gopay": {
+    "AMI": 83587800
+   },
+   "B.1.7 Jogja Travel Pass": {
+    "AMI": 2170800
+   },
+   "B.1.8 KMT": {
+    "AMI": 31897800
+   },
+   "B.1.9 QRIS Mandiri": {
+    "AMI": 66992400
+   },
+   "B.1.10 QRIS BPD": {
+    "AMI": 210950200
+   },
+   "B.1.11 QRIS Tap": {
+    "AMI": 125900
+   },
+   "B.1.12 Tapcash BNI": {
+    "AMI": 20271600
+   },
+   "B.1.13 Kartu Difabel": {
+    "AMI": 1688000
+   },
+   "B.1.14 Kartu Lansia": {
+    "AMI": 52716000
+   },
+   "B.1.15 Kartu Pelajar": {
+    "AMI": 64995000
+   },
+   "B.1.16 Kartu Reguler": {
+    "AMI": 69184800
+   },
+   "B.1.17 Vending Machine": {
+    "AMI": 7479800
+   },
+   "B.1.18 Reimbursment": {
+    "AMI": 3958000
+   },
+   "B.2.19 Branding PT Morata Media Indoensia - Sprite": {
+    "AMI": 56745360
+   },
+   "B.2.20 Branding PT AMDG - Aqua": {
+    "AMI": 0
+   },
+   "B.2.21 Pendapatan Lainnya": {
+    "AMI": 0
+   }
+  },
+  "Bus Listrik": {
+   "1.1.1.1 Biaya Profisi": {
+    "tagihan": 0
+   },
+   "1.1.1.2 Asuransi Kendaraan": {
+    "tagihan": 0
+   },
+   "1.1.1.3 Asuransi Kredit": {
+    "tagihan": 0
+   },
+   "1.1.1.4 BBNKB": {
+    "tagihan": 0
+   },
+   "1.1.1.5 Ongkos Kirim": {
+    "tagihan": 0
+   },
+   "1.1.1.6 Biaya Keur": {
+    "tagihan": 0
+   },
+   "1.1.1.7 Biaya PKB (STNK)": {
+    "tagihan": 0
+   },
+   "1.1.1.8 Nilai Depresiasi Bus": {
+    "tagihan": 0
+   },
+   "1.1.1.9 Biaya Bunga Atas Modal": {
+    "tagihan": 0
+   },
+   "1.1.2.1 Biaya Penggunaan Daya": {
+    "tagihan": 15680447
+   },
+   "1.1.2.2 Biaya Ban": {
+    "tagihan": 0
+   },
+   "1.1.2.3 Service Kecil": {
+    "tagihan": 2023660
+   },
+   "1.1.2.4 Service Besar": {
+    "tagihan": 0
+   },
+   "1.1.2.5 Biaya Kontrak Service": {
+    "tagihan": 0
+   },
+   "1.1.2.6 Biaya Perawatan dan Perbaikan AC": {
+    "tagihan": 3984900
+   },
+   "1.1.2.7 Biaya Overhoul Mesin": {
+    "tagihan": 0
+   },
+   "1.1.2.8 Biaya Overhoul Body": {
+    "tagihan": 0
+   },
+   "1.1.2.9 Biaya Penggantian Suku Cadang": {
+    "tagihan": 5758680
+   },
+   "1.1.2.10 Biaya Pemeliharaan Body": {
+    "tagihan": 0
+   },
+   "1.1.2.11 Biaya Cuci Bus": {
+    "tagihan": 3300000
+   },
+   "1.1.2.12 Biaya Retribusi": {
+    "tagihan": 1304000
+   },
+   "1.1.3.1 Alat Pengawasan IOT": {
+    "tagihan": 0
+   },
+   "1.1.3.2 Peningkatan Fasilitas Monitoring": {
+    "tagihan": 0
+   },
+   "1.1.3.3 Biaya Layanan IOT": {
+    "tagihan": 0
+   },
+   "1.1.3.4 Biaya Layanan GPS": {
+    "tagihan": 0
+   },
+   "1.1.4.1 Gaji Pramudi": {
+    "tagihan": 27059433
+   },
+   "1.1.5.1 Biaya Peningkatan Fasilitas Armada": {
+    "tagihan": 0
+   },
+   "1.1.5.2 Biaya Peningkatan Fasilitas Monitoring": {
+    "tagihan": 1500000
+   },
+   "1.1.6.1 Biaya Asuransi Penumpang": {
+    "tagihan": 0
+   },
+   "1.2.1.1 Manajer": {
+    "tagihan": 0
+   },
+   "1.2.1.2 Kepala Bengkel dan Gudang": {
+    "tagihan": 0
+   },
+   "1.2.1.3 Kepala Bagian Operasi": {
+    "tagihan": 0
+   },
+   "1.2.1.4 Kepala Bagian Administrasi dan Keuangan": {
+    "tagihan": 5168689
+   },
+   "1.2.1.5 Staf Bengkel dan Gudang": {
+    "tagihan": 0
+   },
+   "1.2.1.6 Staf Bagian Operasi": {
+    "tagihan": 0
+   },
+   "1.2.1.7 Staf Bagian Administrasi dan Keuangan": {
+    "tagihan": 0
+   },
+   "1.2.1.8 Mekanik": {
+    "tagihan": 3701288
+   },
+   "1.2.1.9 Security": {
+    "tagihan": 8576560
+   },
+   "1.2.2.1 Biaya Sewa Kantor, Pool dan Bengkel": {
+    "tagihan": 0
+   },
+   "1.2.2.2 Penyusutan Peralatan Kantor": {
+    "tagihan": 0
+   },
+   "1.2.2.3 Penyusutan Peralatan Pool dan Bengkel": {
+    "tagihan": 0
+   },
+   "1.2.2.4 Pemeliharaan Kantor, Bengkel dan Peralatan": {
+    "tagihan": 0
+   },
+   "1.2.2.5 Biaya Administrasi Kantor": {
+    "tagihan": 27382
+   },
+   "1.2.2.6 Biaya Listrik, Air dan Telekomunikasi": {
+    "tagihan": 503500
+   },
+   "1.2.2.7 Biaya Perjalanan Dinas": {
+    "tagihan": 0
+   },
+   "1.2.2.8 Biaya Izin Usaha": {
+    "tagihan": 0
+   },
+   "1.2.2.9 Biaya Izin Trayek": {
+    "tagihan": 0
+   },
+   "1.2.2.10 Biaya Lain-Lain": {
+    "tagihan": 46250
+   },
+   "2.1 Pengadaan dan atau Pemeliharaan Mesin Tiket": {
+    "tagihan": 3697188
+   },
+   "2.2 Pramugara/i": {
+    "tagihan": 22759187
+   },
+   "2.3 Biaya Petugas Halte": {
+    "tagihan": 0
+   },
+   "2.4 Biaya dalam hal Bencana": {
+    "tagihan": 0
+   },
+   "2.5 Biaya Hidangan Rapat Evaluasi dan Verifikasi": {
+    "tagihan": 0
+   },
+   "B.1.1 Jogja Travel Pass": {
+    "tagihan": 16200
+   },
+   "B.1.2 Astrapay": {
+    "tagihan": 2700
+   },
+   "B.1.3 Brizzi BRI": {
+    "tagihan": 207900
+   },
+   "B.1.4 E-Money": {
+    "tagihan": 850500
+   },
+   "B.1.5 Flazz": {
+    "tagihan": 335900
+   },
+   "B.1.6 KMT Umum": {
+    "tagihan": 426600
+   },
+   "B.1.7 Qris CPM": {
+    "tagihan": 2700
+   },
+   "B.1.8 Qris MPM": {
+    "tagihan": 2988900
+   },
+   "B.1.9 Qris Tap": {
+    "tagihan": 35100
+   },
+   "B.1.10 Tapcash Umum": {
+    "tagihan": 226800
+   },
+   "B.1.11 Transjogja Disabilitas": {
+    "tagihan": 6000
+   },
+   "B.1.12 Transjogja Lansia": {
+    "tagihan": 474000
+   },
+   "B.1.13 Transjogja Pelajar": {
+    "tagihan": 370500
+   },
+   "B.1.14 Transjogja Umum": {
+    "tagihan": 575100
+   },
+   "B.1.15 VM Gopay Umum": {
+    "tagihan": 0
+   },
+   "B.2.16 Branding": {
+    "tagihan": 0
+   }
+  }
+ }
+}
