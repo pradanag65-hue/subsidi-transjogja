@@ -28,13 +28,13 @@ const cq=c=>!q||(c.uraian+' '+c.op+' #'+c.id).toLowerCase().includes(q);
 function srch(x){q=x.trim().toLowerCase();if((tab=='master'||tab=='ajuan')&&!ed)draw()}
 let GUEST=false;
 function enter(u,role){GUEST=role==='guest';$('lg').hidden=true;$('app').hidden=false;$('un').textContent=u;$('av').textContent=u[0].toUpperCase();$('ro').textContent=GUEST?'Tamu · hanya lihat':'Administrator';draw()}
-function login(role){if(!S)return;const g=role==='guest',u=g?'Tamu':($('lu').value.trim()||'Administrator');
+function login(role){if(CLOUD)return cloudLogin(role);if(!S)return;const g=role==='guest',u=g?'Tamu':($('lu').value.trim()||'Administrator');
  try{sessionStorage.setItem('tjU',u);sessionStorage.setItem('tjR',g?'guest':'admin')}catch(e){}enter(u,g?'guest':'admin')}
-function logout(){try{sessionStorage.removeItem('tjU')}catch(e){}$('app').hidden=true;$('lg').hidden=false}
+function logout(){if(CLOUD){sb.auth.signOut();S=null;LAST=null}try{sessionStorage.removeItem('tjU')}catch(e){}$('app').hidden=true;$('lg').hidden=false}
 let S,tab='dash',ed=null;
 const seed=()=>({p:{...CFG.params},m:JSON.parse(JSON.stringify(MASTER)),c:[],n:0,mv:CFG.masterVersion});
 
-const save=()=>{try{localStorage.setItem('erpTJ2',JSON.stringify(S))}catch(e){}};
+const save=()=>{if(CLOUD){schedulePush();return}try{localStorage.setItem('erpTJ2',JSON.stringify(S))}catch(e){}};
 const R=n=>(n<0?'-':'')+'Rp '+Math.abs(Math.round(n)).toLocaleString('id-ID');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const sg=k=>k==='Pendapatan'?-1:1;
@@ -299,14 +299,14 @@ function baView(){
 /* --- Pengaturan: cadangan data --- */
 function setView(){
  const kb=(JSON.stringify(S).length/1024).toFixed(1);
- return `<div class="g"><div class="k"><span class="kl">Komponen master</span><b>${S.m.length}</b></div><div class="k"><span class="kl">Pengajuan tercatat</span><b>${S.c.length}</b></div><div class="k"><span class="kl">Ukuran data</span><b>${kb} KB</b></div></div>
+ return `${CLOUD?'<div class="note">Mode penyimpanan: <b>Supabase</b>. Data tersimpan di server dan dipakai bersama.</div><div class="f"><button class="p" onclick="reloadCloud()">Muat ulang dari server</button></div>':'<div class="note">Mode penyimpanan: <b>browser</b>. Data hanya ada di perangkat ini. Lihat PANDUAN untuk menyambungkan Supabase.</div>'}<div class="g"><div class="k"><span class="kl">Komponen master</span><b>${S.m.length}</b></div><div class="k"><span class="kl">Pengajuan tercatat</span><b>${S.c.length}</b></div><div class="k"><span class="kl">Ukuran data</span><b>${kb} KB</b></div></div>
  <div class="pn"><h3>Cadangan data</h3><p class="sub">Data tersimpan di browser ini. Unduh cadangan secara berkala, dan pulihkan di perangkat lain bila perlu.</p><div class="f"><button class="p" onclick="bak()">Unduh cadangan (JSON)</button><button class="p" onclick="cpy()">Salin JSON</button><label>Pulihkan dari cadangan<input type="file" accept=".json" onchange="rst(this)"></label></div></div>
  <div class="pn"><h3>Reset</h3><p class="sub">Menghapus seluruh pengajuan dan mengembalikan master ke data awal. Unduh cadangan lebih dulu.</p><button class="x" onclick="rset()">Reset data</button></div>`}
 function bak(){const b=new Blob([JSON.stringify(S,null,1)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='backup-erp-transjogja-'+new Date().toISOString().slice(0,10)+'.json';a.click()}
 function cpy(){try{navigator.clipboard.writeText(JSON.stringify(S)).then(()=>alert('JSON tersalin')).catch(()=>alert('Browser menolak akses clipboard. Gunakan Unduh cadangan.'))}catch(e){alert('Clipboard tidak tersedia. Gunakan Unduh cadangan.')}}
 function rst(el){const f=el.files[0];if(!f)return;const r=new FileReader();
  r.onload=e=>{try{const d=JSON.parse(e.target.result);if(!d.m||!d.c||!d.p)throw 0;if(!confirm('Ganti seluruh data dengan cadangan ini?'))return;S=d;S.f=S.f||'';save();draw();alert('Data dipulihkan')}catch(x){alert('File cadangan tidak valid')}};r.readAsText(f)}
-function rset(){if(confirm('Hapus SEMUA pengajuan dan kembalikan master ke data awal di browser ini?')){S=seed();S.f='';save();draw()}}
+function rset(){if(confirm(CLOUD?'Hapus SEMUA data di server Supabase dan kembalikan ke data awal? Tidak bisa dibatalkan.':'Hapus SEMUA pengajuan dan kembalikan master ke data awal di browser ini?')){S=seed();S.f='';save();draw()}}
 
 
 /* ================= Laporan ================= */
@@ -359,13 +359,78 @@ function lapView(){
  <div class="sub">Keuntungan dihitung dari komponen bertanda kena margin (${S.p.mg}%). Pada data pengajuan, nilai tiap pengajuan dicatat pada bulan periodenya. Pengajuan ulang dihitung sebagai pengajuan baru di periodenya.</div>`;
 }
 
+
+/* ================= Supabase (opsional) =================
+   Aktif bila js/config.js berisi SUPABASE_URL dan SUPABASE_KEY. Kosong = mode browser (localStorage). */
+const CF=window.ERP_CONFIG||{};
+let sb=null,CLOUD=false,LAST=null,pushT=null,busy=false,again=false,ADMIN=false;
+function sy(t,c){const e=$('sy');if(e){e.textContent=t;e.className='sy '+(c||'')}}
+function initCloud(){if(CF.SUPABASE_URL&&CF.SUPABASE_KEY&&window.supabase){try{sb=window.supabase.createClient(CF.SUPABASE_URL,CF.SUPABASE_KEY);CLOUD=true}catch(e){console.error(e)}}}
+function snap(){LAST={m:{},c:{},p:JSON.stringify(S.p),mv:S.mv};S.m.forEach(x=>LAST.m[x.id]=JSON.stringify(x));S.c.forEach(x=>LAST.c[x.id]=JSON.stringify(x))}
+async function loadCloud(){
+ sy('Memuat…');
+ const [k,p,g]=await Promise.all([sb.from('komponen').select('id,data').order('id'),sb.from('pengajuan').select('id,data').order('id'),sb.from('pengaturan').select('key,data')]);
+ const er=k.error||p.error||g.error;if(er)throw er;
+ const st={};g.data.forEach(r=>st[r.key]=r.data);const prev=S;
+ S={p:Object.assign({},CFG.params,st.params||{}),m:k.data.map(r=>({...r.data,id:r.id})),c:p.data.map(r=>({...r.data,id:r.id})),mv:(st.meta&&st.meta.mv)||1,f:(prev&&prev.f)||'',yr:prev&&prev.yr};
+ S.n=Math.max(0,...S.c.map(c=>c.id));snap();
+ if(ADMIN){
+  if(!S.m.length){S.m=JSON.parse(JSON.stringify(MASTER));S.mv=CFG.masterVersion;await pushNow()}
+  else if(S.mv<CFG.masterVersion)migrateMaster();
+ }
+ sy(ADMIN?'Tersambung':'Hanya lihat','ok');
+}
+async function pushNow(){
+ if(!CLOUD||!ADMIN||!LAST)return;sy('Menyimpan…');
+ try{
+  for(const [t,arr,key] of [['komponen',S.m,'m'],['pengajuan',S.c,'c']]){
+   const L=LAST[key],cur={};arr.forEach(x=>cur[x.id]=1);
+   const ins=[],upd=[],del=Object.keys(L).filter(id=>!(id in cur)).map(Number);
+   arr.forEach(x=>{if(!(x.id in L))ins.push({id:x.id,data:x});else if(L[x.id]!==JSON.stringify(x))upd.push(x)});
+   if(ins.length){const r=await sb.from(t).insert(ins);if(r.error)throw r.error}
+   if(upd.length>5){const r=await sb.from(t).upsert(upd.map(x=>({id:x.id,data:x})));if(r.error)throw r.error}
+   else for(const x of upd){const r=await sb.from(t).update({data:x}).eq('id',x.id);if(r.error)throw r.error}
+   if(del.length){const r=await sb.from(t).delete().in('id',del);if(r.error)throw r.error}
+  }
+  if(JSON.stringify(S.p)!==LAST.p||S.mv!==LAST.mv){const r=await sb.from('pengaturan').upsert([{key:'params',data:S.p},{key:'meta',data:{mv:S.mv}}]);if(r.error)throw r.error}
+  snap();sy('Tersimpan','ok');
+ }catch(e){
+  sy('Gagal menyimpan','er');
+  if(e&&e.code==='23505'){alert('Data sudah diubah pengguna lain. Halaman dimuat ulang dari server, silakan ulangi perubahan Anda.');await reloadCloud(true)}
+  else alert('Gagal menyimpan ke Supabase: '+((e&&e.message)||e));
+ }
+}
+function schedulePush(){if(!CLOUD||!ADMIN)return;clearTimeout(pushT);sy('Menyimpan…');pushT=setTimeout(runPush,600)}
+async function runPush(){pushT=null;if(busy){again=true;return}busy=true;try{await pushNow()}finally{busy=false}if(again){again=false;runPush()}}
+async function reloadCloud(q){try{await loadCloud();draw()}catch(e){if(!q)alert('Gagal memuat: '+((e&&e.message)||e))}}
+async function afterAuth(){
+ const u=(await sb.auth.getUser()).data.user;if(!u)return;
+ let nama=u.email||'Tamu',role='guest';
+ if(!u.is_anonymous){const r=await sb.from('profil').select('nama,peran').eq('user_id',u.id).maybeSingle();if(r.data){nama=r.data.nama||nama;if(r.data.peran==='admin')role='admin'}}
+ ADMIN=role==='admin';
+ try{await loadCloud()}catch(e){alert('Gagal memuat data dari Supabase: '+((e&&e.message)||e));return}
+ enter(u.is_anonymous?'Tamu':nama,role);
+}
+async function cloudLogin(role){
+ const g=role==='guest';
+ const r=g?await sb.auth.signInAnonymously():await sb.auth.signInWithPassword({email:$('lu').value.trim(),password:$('lp').value});
+ if(r.error)return alert('Login gagal: '+r.error.message);
+ return afterAuth();
+}
+
 async function loadData(){
  if(window.INLINE){CFG=INLINE.config;MASTER=INLINE.master;return}
  try{const [c,m]=await Promise.all([fetch('data/config.json').then(r=>r.json()),fetch('data/master.json').then(r=>r.json())]);CFG=c;MASTER=m}
  catch(e){document.body.innerHTML='<p style="padding:40px;font-family:sans-serif">Gagal memuat data/*.json. Jalankan lewat web server (mis. <code>npx serve</code> atau deploy ke Vercel), bukan dengan membuka file langsung.</p>';throw e}
 }
 async function init(){
- await loadData();TABS=CFG.tabs;
+ await loadData();TABS=CFG.tabs;initCloud();
+ if(CLOUD){
+  $('lu').placeholder='Email';$('lu').type='email';$('demo').textContent='Masuk dengan akun yang dibuat di Supabase. Tamu hanya dapat melihat data.';
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden&&CLOUD&&S&&!busy&&!pushT&&!ed)reloadCloud(true)});
+  const s=await sb.auth.getSession();if(s.data&&s.data.session)await afterAuth();
+  return}
+
  try{S=JSON.parse(localStorage.getItem('erpTJ2'))}catch(e){}
  S=S||seed();S.p=Object.assign({},CFG.params,S.p);S.f=S.f||'';
  if((S.mv||1)<CFG.masterVersion)migrateMaster();

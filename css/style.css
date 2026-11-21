@@ -140,6 +140,7 @@ tr.t td.rp,tr.t2 td.rp{background:var(--hv)}
 table.rt td.n{font-size:12.5px}
 tr.rr td{font-size:12.5px}tr.r3 td{font-size:12px;color:var(--mu)}
 button:disabled,input:disabled,select:disabled{opacity:.45;cursor:not-allowed}
+.sy{font-size:11px;letter-spacing:.06em;color:var(--mu)}.sy.ok{color:var(--ok)}.sy.er{color:var(--er)}
 @media print{
  :root:not([data-theme="x"]){--bg:#fff;--cd:#fff;--fg:#000;--mu:#444;--bd:#bbb;--hv:#f0f0f0;--gd:#555}
  aside,.tb,.no-print,.ph{display:none!important}
