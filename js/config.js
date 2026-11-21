@@ -3,6 +3,6 @@
 // SUPABASE_KEY memakai kunci "publishable" (sb_publishable_...). Aman berada di browser karena data dilindungi RLS.
 // JANGAN pernah memasukkan "secret key" atau "service_role" ke file ini.
 window.ERP_CONFIG={
-  SUPABASE_URL:"",
-  SUPABASE_KEY:""
+  SUPABASE_URL:"https://anjexvcryecuegqiycjb.supabase.co",
+  SUPABASE_KEY:"sb_publishable_LOzczBxpABBpaFu-KqeFLg_spWXoGzU"
 };
